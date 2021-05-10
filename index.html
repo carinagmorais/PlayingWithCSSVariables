@@ -90,7 +90,13 @@
       // Remember that that an nodeList and an forEach function!
 
       function handleUpdate() {
-        console.log(this.value);
+        //to handle this function we need to know the suffix of the variables
+        //dataSet  - object that contains all data atributtes from a specific element
+        const suffix = this.dataset.sizing || "";
+        document.documentElement.style.setProperty(
+          `--${this.name}`,
+          this.value + suffix
+        );
       }
 
       inputs.forEach((input) => input.addEventListener("change", handleUpdate));
